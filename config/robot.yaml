@@ -1,0 +1,16 @@
+serial_number: a300-0001
+version: 0
+system:
+  type: a300
+  hosts:
+    - hostname: "robot"
+      ip: "127.0.0.1"
+platform:
+  attachments:
+    - name: laser_mount
+      type: husky.top_plate
+  accessories:
+    - name: laser
+      type: sensors.lidar2d
+      parent: laser_mount
+      model: lms1xx

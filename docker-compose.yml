@@ -1,0 +1,32 @@
+services:
+  husky_sim:
+    build: .
+    container_name: husky_jazzy_sim
+    network_mode: host
+    privileged: true
+    
+    shm_size: '2gb'
+    
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+      - ROS_DOMAIN_ID=0
+      - LIBGL_ALWAYS_SOFTWARE=1
+      - MESA_GL_VERSION_OVERRIDE=3.3
+      - MESA_GLSL_VERSION_OVERRIDE=330
+      - GZ_RENDER_ENGINE_GUI_API=opengl
+      - GZ_PARTIAL_RENDERING=1
+      - PYTHONUNBUFFERED=1
+      - HUSKY_LASER_ENABLED=true  # ← ADD THIS
+
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ./rviz:/ros2_ws/rviz        
+      - ./launch:/ros2_ws/launch    
+      - ./config:/ros2_ws/config    
+
+    stdin_open: true
+    tty: true
+    command: /bin/bash
