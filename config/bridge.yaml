@@ -1,0 +1,6 @@
+- ros_topic_name: "/cpr_a300_0001/scan"
+  gz_topic_name: "/cpr_a300_0001/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+  lazy: false
