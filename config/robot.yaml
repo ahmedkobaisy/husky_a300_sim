@@ -1,16 +1,39 @@
 serial_number: a300-0001
 version: 0
 system:
-  type: a300
   hosts:
-    - hostname: "robot"
-      ip: "127.0.0.1"
+    - hostname: cpr-a300-0001
+      ip: 192.168.131.1
+  ros2:
+    namespace: cpr_a300_0001
+    domain_id: 0
+    middleware:
+      implementation: rmw_fastrtps_cpp
+    workspaces: []
 platform:
+  battery:
+    model: S_24V20_U1
+    configuration: S1P2
   attachments:
-    - name: laser_mount
-      type: husky.top_plate
-  accessories:
-    - name: laser
-      type: sensors.lidar2d
-      parent: laser_mount
-      model: lms1xx
+    - name: front_bumper
+      type: a300.bumper
+      parent: front_bumper_mount
+    - name: rear_bumper
+      type: a300.bumper
+      parent: rear_bumper_mount
+    - name: top_plate
+      type: a300.top_plate
+  mcu:
+    protocol: proton
+sensors:
+  lidar2d:
+    - model: sick_lms1xx
+      urdf_enabled: true
+      launch_enabled: true
+      parent: top_plate_front_mount
+      xyz: [0.0, 0.0, 0.0]
+      rpy: [0.0, 0.0, 0.0]
+  camera: []
+  gps: []
+  imu: []
+  lidar3d: []

@@ -9,4 +9,6 @@ cpr_a300_0001:
       use_sim_time: True
       bms_state_rate: 2.5
       bms_state_tolerance: 0.2
-      mcu_protocol: 'uros'
+      mcu_protocol: 'proton'
+      topics.sensors/lidar2d_0/scan.type: 'sensor_msgs/msg/LaserScan'
+      topics.sensors/lidar2d_0/scan.rate: 40.0

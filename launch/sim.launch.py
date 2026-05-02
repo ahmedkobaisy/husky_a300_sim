@@ -33,8 +33,15 @@ def generate_launch_description():
         output='screen'
     )
 
+    # TF Relay (namespaced → global for SLAM)  ← CHANGED!
+    tf_relay = ExecuteProcess(
+        cmd=['python3', '/ros2_ws/config/tf_relay.py'],
+        output='screen'
+    )
+
     return LaunchDescription([
         sim_launch,
         bridge_node,
-        twist_converter
+        twist_converter,
+        tf_relay        
     ])
