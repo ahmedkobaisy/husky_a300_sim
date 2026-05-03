@@ -12,4 +12,9 @@ fi
 # Enable Husky LiDAR
 export HUSKY_LASER_ENABLED=true
 
+# Auto-copy robot.yaml to required locations
+mkdir -p /root/.clearpath /etc/clearpath
+cp /ros2_ws/config/robot.yaml /root/.clearpath/robot.yaml
+cp /ros2_ws/config/robot.yaml /etc/clearpath/robot.yaml
+
 exec "$@"
