@@ -33,7 +33,13 @@ sensors:
       parent: top_plate_front_mount
       xyz: [0.0, 0.0, 0.0]
       rpy: [0.0, 0.0, 0.0]
-  camera: []
+  camera:
+    - model: intel_realsense
+      urdf_enabled: true
+      launch_enabled: true
+      parent: top_plate_front_mount
+      xyz: [0.1, 0.0, 0.1]
+      rpy: [0.0, 0.0, 0.0]
   gps: []
   imu: []
   lidar3d: []
