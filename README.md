@@ -86,21 +86,6 @@ With GUI:
 ros2 launch launch/sim.launch.py
 ```
 
----
-
-### Bridge LiDAR
-
-```bash
-ros2 run ros_gz_bridge parameter_bridge \
-/cpr_a300_0001/sensors/lidar2d_0/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan
-```
-
-Alternative using config file:
-
-```bash
-ros2 run ros_gz_bridge parameter_bridge \
---ros-args -p config_file:=/ros2_ws/config/bridge.yaml
-```
 
 ---
 
