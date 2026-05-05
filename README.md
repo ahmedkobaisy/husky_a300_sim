@@ -134,8 +134,23 @@ pkill -f ros2
 pkill -f gz
 docker compose down
 ```
+ ## Verify Everything
+  
+# All topics
+ros2 topic list | grep cpr_a300
 
----
+# LiDAR
+ros2 topic hz /cpr_a300_0001/sensors/lidar2d_0/scan
+
+# Camera
+ros2 topic hz /cpr_a300_0001/camera/image
+
+# Map
+ros2 topic hz /cpr_a300_0001/map
+
+# TF
+ros2 topic hz /tf
+
 
 ## Troubleshooting
 
